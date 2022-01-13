@@ -1,4 +1,5 @@
-﻿using ExercicioComposicao.Entities;
+﻿using System.Globalization;
+using ExercicioComposicao.Entities;
 namespace ExercicioComposicao.Entities
 {
     class OrderItem
@@ -6,7 +7,7 @@ namespace ExercicioComposicao.Entities
         public int Quantity { get; set; }
         public double Price { get; set; }
 
-        public Product Product { get; set; }
+        public Product Name { get; set; }
 
         public OrderItem()
         {
@@ -16,12 +17,17 @@ namespace ExercicioComposicao.Entities
         {
             Quantity = quantity;
             Price = price;
-            Product = product;
+            Name = product;
         }
 
         public double SubTotal()
         {
-            return Quantity * Price;
+            return  (Quantity) * Price;
+        }
+
+        public override string ToString()
+        {
+            return $"{Name}, ${Price}, Quantity: {Quantity}, Subtotal: ${SubTotal()}";
         }
     }
 }

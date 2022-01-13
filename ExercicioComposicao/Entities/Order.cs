@@ -6,7 +6,7 @@ namespace ExercicioComposicao.Entities
 {
     class Order
     {
-        public DateTime Date { get; set; } = DateTime.Now;
+        public DateTime Date { get; set; }
         public OrderStatus Status { get; set; }
         public Client Client { get; set; }
         public List<OrderItem> Items { get; set; } = new List<OrderItem>();
@@ -15,9 +15,9 @@ namespace ExercicioComposicao.Entities
         {
         }
 
-        public Order(DateTime date, OrderStatus status, Client client)
+        public Order( OrderStatus status, Client client)
         {
-            Date = date;
+            Date = DateTime.Now;
             Status = status;
             this.Client = client;
         }
@@ -42,6 +42,16 @@ namespace ExercicioComposicao.Entities
             }
 
             return sum;
+        }
+
+
+        public override string ToString()
+        {
+            return "Order moment: "
+                + Date 
+                + "\r\nOrder Status: "
+                + Status
+                + $"\r\nClient: {Client.Name} ({Client.BirthDate}) - {Client.Email}";
         }
     }
 }

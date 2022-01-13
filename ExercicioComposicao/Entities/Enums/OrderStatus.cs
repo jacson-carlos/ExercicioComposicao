@@ -1,6 +1,4 @@
-﻿
-
-namespace ExercicioComposicao.Entities.Enums
+﻿namespace ExercicioComposicao.Entities.Enums
 {
     enum OrderStatus : int
     {
